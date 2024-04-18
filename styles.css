@@ -54,11 +54,13 @@
 .search {
   display: flex;
   height: 22px;
-  margin: 10px;
+  margin: 20px 0px 10px 0px;
+  justify-content: center;
+  align-items: center;
 }
 
 .search > input {
-  margin: auto;
   height: 100%;
   width: 30%;
+  margin-right: 10px;
 }
