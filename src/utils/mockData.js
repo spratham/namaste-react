@@ -1,24 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-const heading = React.createElement("h1", { id: "heading" }, "Namate React");
-
-// Episode 4 food app using swiggy api
-/**
- * Header
- * - Logo
- * - Nav component
- * Body
- * - Search
- * - RestaurantContainer
- * - RestaurantCards
- * Footer
- * - CopyRight
- * - Links
- * - Address
- * - Contact
- */
-const resData = [
+export default resList = [
   {
     info: {
       id: "503002",
@@ -28,9 +8,9 @@ const resData = [
       areaName: "Shanti Nagar",
       costForTwo: "₹250 for two",
       cuisines: ["North Indian", "Punjabi", "Home Food"],
-      avgRating: 4.6,
+      avgRating: 3.6,
       parentId: "22452",
-      avgRatingString: "4.6",
+      avgRatingString: "3.6",
       totalRatingsString: "100+",
       sla: {
         deliveryTime: 32,
@@ -744,68 +724,3 @@ const resData = [
     widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
   },
 ];
-
-const HeaderComponent = () => {
-  return (
-    <div className="head-container">
-      <img
-        className="logo"
-        src="https://media.istockphoto.com/id/1038356020/vector/restaurant-icon.jpg?s=612x612&w=0&k=20&c=Tk_v3JuJA4lz_8ZRJi78xS4p75Idqt97uEtYJciVtFI="
-        alt="image"
-      ></img>
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-const RestaurantCard = (props) => {
-  const { resList } = props;
-  return (
-    <div className="card">
-      <img
-        className="card-img"
-        src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          resList.info.cloudinaryImageId
-        }
-        alt="img"
-      ></img>
-      <h3>{resList.info.name}</h3>
-      <h3>{resList.info.cuisines.join(", ")}</h3>
-      <h3>{resList.info.avgRating}</h3>
-      <h3>{resList.info.costForTwo}</h3>
-      <h3>{resList.info.sla.slaString}</h3>
-    </div>
-  );
-};
-
-const BodyComponent = () => {
-  return (
-    <div className="body-container">
-      <div className="search">Search</div>
-      <div className="cards-container">
-        {resData.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} resList={restaurant} />
-        ))}{" "}
-      </div>
-    </div>
-  );
-};
-
-const AppComponent = () => {
-  return (
-    <div className="main-container">
-      <HeaderComponent />
-      <BodyComponent />
-    </div>
-  );
-};
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppComponent />);
