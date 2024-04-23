@@ -64,3 +64,25 @@
   width: 30%;
   margin-right: 10px;
 }
+
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.shimmer-card {
+  width: 200px;
+  height: 400px;
+  background-color: #f0f0f0;
+  margin: 20px;
+}
+
+.reset-search {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.reset-search:hover {
+  font-weight: 600;
+  font-size: 24px;
+}
