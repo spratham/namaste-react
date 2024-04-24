@@ -25,13 +25,13 @@ export default BodyComponent = () => {
       json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
     );
   };
-
+  console.log("body rendered");
   return (
     <div className="body-container">
       <div className="search">
         <input
           value={searchText}
-          placeholder=" your favorite restaurant..."
+          placeholder=" Search your favorite restaurant..."
           onChange={(e) => {
             setSearchText(e.target.value);
           }}
@@ -75,12 +75,13 @@ export default BodyComponent = () => {
       </div>
 
       <div className="cards-container">
-        {/* {filteredRestaurant.length === 0 ? (
+        {filteredRestaurant.length === 0 ? (
           <Shimmer />
-        ) : ( */}
-        {filteredRestaurant.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
-        ))}
+        ) : (
+          filteredRestaurant.map((restaurant) => (
+            <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+          ))
+        )}
       </div>
     </div>
   );
