@@ -31,7 +31,7 @@ export default BodyComponent = () => {
       <div className="search">
         <input
           value={searchText}
-          placeholder="Search your favorite restaurant..."
+          placeholder=" your favorite restaurant..."
           onChange={(e) => {
             setSearchText(e.target.value);
           }}
@@ -75,13 +75,12 @@ export default BodyComponent = () => {
       </div>
 
       <div className="cards-container">
-        {filteredRestaurant.length === 0 ? (
+        {/* {filteredRestaurant.length === 0 ? (
           <Shimmer />
-        ) : (
-          filteredRestaurant.map((restaurant) => (
-            <RestaurantCard key={restaurant.info.id} resData={restaurant} />
-          ))
-        )}
+        ) : ( */}
+        {filteredRestaurant.map((restaurant) => (
+          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+        ))}
       </div>
     </div>
   );
