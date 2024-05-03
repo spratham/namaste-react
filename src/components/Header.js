@@ -1,6 +1,8 @@
 import React from "react";
 import { LOGO_URL } from "../utils/constants";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
 export default HeaderComponent = () => {
   const [btnName, setBtnName] = useState("Login");
 
@@ -9,9 +11,15 @@ export default HeaderComponent = () => {
       <img className="logo" src={LOGO_URL} alt="image"></img>
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>{" "}
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
           <li>Cart</li>
           <button
             className="login"

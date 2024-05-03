@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
+
 export default BodyComponent = () => {
   // State variable to hold the list of restaurants
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
@@ -26,6 +28,7 @@ export default BodyComponent = () => {
     );
   };
   console.log("body rendered");
+
   return (
     <div className="body-container">
       <div className="search">
@@ -36,15 +39,17 @@ export default BodyComponent = () => {
             setSearchText(e.target.value);
           }}
         />
-        <span
-          className="reset-search"
-          onClick={() => {
-            setFilteredRestaurant(listOfRestaurant);
-            setSearchText("");
-          }}
-        >
-          x
-        </span>
+        {searchText.length > 0 && (
+          <span
+            className="reset-search"
+            onClick={() => {
+              setFilteredRestaurant(listOfRestaurant);
+              setSearchText("");
+            }}
+          >
+            x
+          </span>
+        )}
         <button
           onClick={() => {
             const searchedList = listOfRestaurant.filter((res) =>
@@ -65,7 +70,7 @@ export default BodyComponent = () => {
             const filteredList = listOfRestaurant.filter(
               (res) => res.info.avgRating > 4
             );
-            filteredRestaurant(filteredList);
+            setFilteredRestaurant(filteredList);
             console.log(filteredList);
           }}
           className="filter-btn"
@@ -79,7 +84,12 @@ export default BodyComponent = () => {
           <Shimmer />
         ) : (
           filteredRestaurant.map((restaurant) => (
-            <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+            <Link
+              to={"/restaurants/" + restaurant.info.id}
+              key={restaurant.info.id}
+            >
+              <RestaurantCard resData={restaurant} />
+            </Link>
           ))
         )}
       </div>

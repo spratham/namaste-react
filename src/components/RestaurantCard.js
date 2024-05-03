@@ -1,5 +1,5 @@
-import React from "react";
-import { CDN_URL } from "../utils/constants";
+// import React from "react";
+import { CDN_URL } from "../utils/constants.js";
 
 export default RestaurantCard = (props) => {
   const { resData } = props;
@@ -20,3 +20,4 @@ export default RestaurantCard = (props) => {
     </div>
   );
 };
+``
